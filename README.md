@@ -1,3 +1,3 @@
-# Webpack library starter
+# VModalJS
 
 A simple, lightweight and compatible replacement for browsers built in alert function.
