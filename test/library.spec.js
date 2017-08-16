@@ -11,11 +11,11 @@ let lib;
 
 describe('Given an instance of my Instance library', () => {
   before(() => {
-    lib = new Instance();
+    lib = Instance();
   });
   describe('when I need the name', () => {
     it('should return the name', () => {
-      expect(lib.name).to.be.equal('Instance');
+      expect(lib()).to.be.equal('Instance');
     });
   });
 });
