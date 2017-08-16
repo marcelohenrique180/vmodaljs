@@ -1,2 +1,2 @@
-import Instance from './instance.js';
+import Instance from './js/instance.js';
 export { Instance };
