@@ -1,0 +1,18 @@
+$error-color: hsl(0, 82%, 39%);
+
+.vmodal-box__header--error {
+    color: $error-color;
+    font-style: italic;
+}
+
+.vmodal-box__button--error {
+    background-color: $error-color;
+    
+    &:hover{
+        border: 2px solid darken($error-color, 10%);
+    }
+}
+
+.vmodal-box__close--error {
+    background-color: $error-color;
+}
