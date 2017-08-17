@@ -1,3 +1,7 @@
+import vmodalDefaultTemplate from '../templates/vmodalDefaultTemplate.pug';
+import vmodalSuccessTemplate from '../templates/vmodalSuccessTemplate.pug';
+import vmodalErrorTemplate from '../templates/vmodalErrorTemplate.pug';
+
 /**
  * Find which template is the choosen between a set of templates.
  *
@@ -21,15 +25,15 @@ export default function vmodal({ title, message, type }) {
 
   // All Templates
   const templates = [
-    // {
-    //   type: 'default', builder: vmodalDefaultTemplate
-    // },
-    // {
-    //   type: 'error', builder: vmodalErrorTemplate
-    // },
-    // {
-    //   type: 'success', builder: vmodalSuccessTemplate
-    // }
+    {
+      type: 'default', builder: vmodalDefaultTemplate
+    },
+    {
+      type: 'error', builder: vmodalErrorTemplate
+    },
+    {
+      type: 'success', builder: vmodalSuccessTemplate
+    }
   ];
 
   // Set the chosen one

@@ -1,2 +1,3 @@
-import vmodal from './js/vmodal.js';
-export { vmodal };
+import vmodal, { resolveTemplate } from './js/vmodal.js';
+
+export { vmodal, resolveTemplate };
