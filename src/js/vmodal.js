@@ -1,11 +1,13 @@
-export default function Instance() {
-  return function name() {
-    return 'Instance';
-  };
+export function resolveTemplate(templates, type) {
+  return templates.reduce((previousTemplate, currentTemplate) => {
+    if (currentTemplate.type === type) {
+      return currentTemplate.builder;
+    }
+    return previousTemplate;
+  }, templates[0].builder);
 }
 
-export function vmodal({ title, message, type }) {
-
+export default function vmodal({ title, message, type }) {
   const noScroll = 'body--no-scroll';
   let resolver, rejector;
 
@@ -23,12 +25,7 @@ export function vmodal({ title, message, type }) {
   ];
 
   // Set the chosen one
-  const template = templates.reduce((previousTemplate, currentTemplate) => {
-    if (currentTemplate.type === type) {
-      return currentTemplate.builder;
-    }
-    return previousTemplate;
-  }, /* vmodalDefaultTemplate */ null);
+  const template = resolveTemplate(templates, type);
 
   // Add template
   document.body.insertAdjacentHTML('afterBegin', template());

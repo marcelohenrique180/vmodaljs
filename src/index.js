@@ -1,2 +1,2 @@
-import Instance from './js/instance.js';
-export { Instance };
+import vmodal from './js/vmodal.js';
+export { vmodal };

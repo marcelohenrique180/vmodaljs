@@ -1,21 +1,29 @@
 /* global describe, it, before */
 
 import chai from 'chai';
-import {Instance} from '../lib/vmodaljs.js';
+import { resolveTemplate } from '../src/js/vmodal.js';
 
 chai.expect();
 
 const expect = chai.expect;
+const fakeFunction = () => {};
+const callMe = () => {};
+let templatesTest, choosenTemplate;
 
-let lib;
+describe('Given a set of Templates', () => {
+  before( () => {
+    choosenTemplate = "T2";
 
-describe('Given an instance of my Instance library', () => {
-  before(() => {
-    lib = Instance();
+    templatesTest = [
+      { type: "T1", builder: fakeFunction },
+      { type: "T2", builder: callMe },
+      { type: "T3", builder: fakeFunction }
+    ];
   });
-  describe('when I need the name', () => {
-    it('should return the name', () => {
-      expect(lib()).to.be.equal('Instance');
+
+  describe('when I need to know the choosen template', () => {
+    it('should return the correct builder', () => {
+      expect(resolveTemplate(templatesTest, choosenTemplate)).to.be.equal(callMe);
     });
   });
 });
