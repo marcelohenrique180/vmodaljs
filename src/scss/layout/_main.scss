@@ -1,0 +1,136 @@
+#vmodal-box.vmodal-box {
+    @include border-radius(10px);
+    @include vmodal-flex();
+    position: fixed;
+    color: #000;
+    background-color: #fff;
+    min-height: 250px;
+    min-width: 350px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em;
+    z-index: 9999999;
+    text-align: center;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+
+    animation-name: vmodal;
+    animation-duration: 300ms;
+
+    @media screen and (max-width: 450px){
+        width: 80%;
+        min-width: 80%;
+    }
+    @media screen and (max-height: 350px){
+        height: 80%;
+        min-height: 80%;
+    }
+}
+
+.vmodal-box-fadeOut {
+    transform: translateY(1em) translate(-50%, -50%);
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 1s;
+}
+
+.vmodal-overlay-fadeOut {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 1s;
+}
+
+body.body--no-scroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+.vmodal-box__container {
+    @include vmodal-flex();
+}
+
+.vmodal-overlay {
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.vmodal-box__header {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.vmodal-box__message {
+    font-size: 1.5em;
+    font-weight: normal;  
+    line-height: 1.3em;  
+}
+
+.vmodal-box__button {
+    @include vmodal-button();
+    @include border-radius(10px);
+    @include box-shadow();
+
+    font-size: 1.5em;
+    padding: .5em 2em;
+    border: 2px solid transparent;
+
+    &:hover {
+        border: 2px solid lighten($default-color, 10%);
+    }
+    &:focus {
+        outline-color: hsla(170, 50%, 58%, 1);
+        outline-style: solid;
+        outline-width: 2px;
+    }
+}
+
+.vmodal-box__close {
+    @include vmodal-button();
+    @include border-radius(50%);
+
+    position: absolute;
+    top: -.5em;
+    right: -.5em;
+    font-size: 1.2em;
+    width: 2.2em;
+    height: 2.2em;
+
+    &:focus {
+        outline-color: hsla(170, 50%, 58%, 1);
+        outline-style: solid;
+        outline-width: 2px;
+    }
+    &:hover, &:focus {
+        transform: scale(.9);
+        transition-property: transform;
+        transition-duration: 250ms;
+    }
+    transform: scale(1);
+    transition-property: transform;
+    transition-duration: 250ms;
+}
+
+.vmodal-box__close:before, .vmodal-box__close:after {
+    content: ' ';
+    position: absolute;
+    top: .2em;
+    left: 1.05em;
+    height: 1.8em;
+    width: 3px;
+    background-color: #fff;
+}
+
+.vmodal-box__close:before {
+    transform: rotate(45deg);
+}
+
+.vmodal-box__close:after {
+    transform: rotate(-45deg);
+}
+

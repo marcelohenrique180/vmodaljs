@@ -26,6 +26,3 @@ node_modules
 # Remove some common IDE working directories
 .idea
 .vscode
-
-# ignore built files
-lib/

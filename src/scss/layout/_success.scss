@@ -1,0 +1,17 @@
+$success-color: hsl(108, 77%, 32%);
+
+.vmodal-box__header--success {
+    color: $success-color;
+}
+
+.vmodal-box__button--success {
+    background-color: $success-color;
+    
+    &:hover{
+        border: 2px solid lighten($success-color, 5%);
+    }
+}
+
+.vmodal-box__close--success {
+    background-color: $success-color;
+}
