@@ -37,6 +37,15 @@ const config = {
         test: /(\.jsx|\.js)$/,
         loader: 'eslint-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.(pug|jade)$/,
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {}
+          }
+        ]
       }
     ]
   },
@@ -44,7 +53,10 @@ const config = {
     modules: [path.resolve('./node_modules'), path.resolve('./src')],
     extensions: ['.json', '.js']
   },
-  plugins: plugins
+  plugins: plugins,
+  externals: [
+    'pug'
+  ]
 };
 
 module.exports = config;
