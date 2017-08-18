@@ -40,5 +40,8 @@
   "bugs": {
     "url": "https://github.com/marcelohenrique180/vmodaljs/issues"
   },
-  "homepage": "https://github.com/marcelohenrique180/vmodaljs"
+  "homepage": "https://github.com/marcelohenrique180/vmodaljs",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
 }
