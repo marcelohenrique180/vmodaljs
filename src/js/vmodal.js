@@ -1,26 +1,9 @@
-import {
-  vmodalDefaultTemplate,
-  vmodalErrorTemplate,
-  vmodalSuccessTemplate
-} from '../templates';
+import templates from '../templates';
 import resolveTemplate from './resolvers/template';
 
 export default function vmodal({ title, message, type }) {
   const noScroll = 'body--no-scroll';
   let resolver, rejector;
-
-  // All Templates
-  const templates = [
-    {
-      type: 'default', builder: vmodalDefaultTemplate
-    },
-    {
-      type: 'error', builder: vmodalErrorTemplate
-    },
-    {
-      type: 'success', builder: vmodalSuccessTemplate
-    }
-  ];
 
   // Set the chosen one
   const template = resolveTemplate(templates, type);
