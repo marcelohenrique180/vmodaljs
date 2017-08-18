@@ -1,6 +1,8 @@
-import vmodalDefaultTemplate from '../templates/vmodalDefaultTemplate.pug';
-import vmodalSuccessTemplate from '../templates/vmodalSuccessTemplate.pug';
-import vmodalErrorTemplate from '../templates/vmodalErrorTemplate.pug';
+import {
+  vmodalDefaultTemplate,
+  vmodalErrorTemplate,
+  vmodalSuccessTemplate
+} from '../templates';
 
 /**
  * Find which template is the choosen between a set of templates.
