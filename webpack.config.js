@@ -16,13 +16,16 @@ let plugins = [ extractSass ], outputFile;
 
 if (env === 'build') {
   plugins.push(new UglifyJsPlugin({ minimize: true }));
-  outputFile = libraryName + '.min.js';
+  outputFile = '[name].min.js';
 } else {
-  outputFile = libraryName + '.js';
+  outputFile = '[name].js';
 }
 
 const config = {
-  entry: __dirname + '/src/index.js',
+  entry: {
+    vmodaljs: __dirname + '/src/index.js',
+    vmodaljs_polyfilled: ["babel-polyfill", __dirname + '/src/index.js']
+  },
   devtool: 'source-map',
   output: {
     path: __dirname + '/lib',
