@@ -1,4 +1,8 @@
-import vmodal, { resolveTemplate } from './js/vmodal.js';
+import vmodal from './js/vmodal.js';
+import resolveTemplate from './js/resolvers/template.js';
+
 import './scss/init.scss';
 
-export { vmodal, resolveTemplate };
+export default vmodal;
+
+export { resolveTemplate };

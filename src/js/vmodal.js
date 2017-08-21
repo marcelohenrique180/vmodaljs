@@ -1,40 +1,9 @@
-import vmodalDefaultTemplate from '../templates/vmodalDefaultTemplate.pug';
-import vmodalSuccessTemplate from '../templates/vmodalSuccessTemplate.pug';
-import vmodalErrorTemplate from '../templates/vmodalErrorTemplate.pug';
-
-/**
- * Find which template is the choosen between a set of templates.
- *
- * @export
- * @param {Object[]} templates contains type and builder properties
- * @param {String} type the choosen property
- * @returns {Function} the builder property from the choosen template
- */
-export function resolveTemplate(templates, type) {
-  return templates.reduce((previousTemplate, currentTemplate) => {
-    if (currentTemplate.type === type) {
-      return currentTemplate.builder;
-    }
-    return previousTemplate;
-  }, templates[0].builder);
-}
+import templates from '../templates';
+import resolveTemplate from './resolvers/template';
 
 export default function vmodal({ title, message, type }) {
   const noScroll = 'body--no-scroll';
   let resolver, rejector;
-
-  // All Templates
-  const templates = [
-    {
-      type: 'default', builder: vmodalDefaultTemplate
-    },
-    {
-      type: 'error', builder: vmodalErrorTemplate
-    },
-    {
-      type: 'success', builder: vmodalSuccessTemplate
-    }
-  ];
 
   // Set the chosen one
   const template = resolveTemplate(templates, type);
