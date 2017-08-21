@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>VModalJS</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../lib/vmodaljs.css">
+  <style>
+    /* Make example beautier */
+
+    body {
+      background-color: hsl(169, 14%, 92%);
+    }
+
+    .example-article {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    .example-article a {
+      font-size: 1em;
+      line-height: 17px;
+      font-weight: normal;
+      background: #0d3773;
+      color: #ffffff;
+      cursor: pointer;
+      border-width: 0px;
+      border-style: solid;
+      outline: none;
+      border-radius: 10px;
+      -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+      margin-top: .5em;
+      font-size: 1.5em;
+      padding: .5em 2em;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .example-article #vmodal-open-error {
+      background-color: red;
+    }
+
+    .example-article #vmodal-open-success {
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body id="body">
+
+  <article class="example-article">
+    <a href="#" id="vmodal-open-default">Default</a>
+    <a href="#" id="vmodal-open-error">Error</a>
+    <a href="#" id="vmodal-open-success">Success</a>
+  </article>
+
+  <script src="../lib/vmodaljs.js"></script>
+  <script>
+    /*
+      * Here are a few examples on how to use VModalJS
+      *
+      * syntax: vmodal({title, message, type})
+    */
+    var vmodalDefault = document.getElementById("vmodal-open-default");
+    var vmodalError = document.getElementById("vmodal-open-error");
+    var vmodalSuccess = document.getElementById("vmodal-open-success");
+
+    vmodalDefault.addEventListener("click", function () {
+      vmodaljs({
+        title: "Heey",
+        message: "My test Message!"
+      }).then(function () {
+        console.log('User says ok.')
+      }).catch(function () { console.log('He closed it.') })
+    });
+    vmodalError.addEventListener("click", function () {
+      vmodaljs({
+        title: "Heey",
+        message: "My test Message!",
+        type: "error"
+      }).then(function () {
+        console.log('User says ok.')
+      }).catch(function () { console.log('He closed it.') })
+    });
+    vmodalSuccess.addEventListener("click", function () {
+      vmodaljs({
+        title: "Heey",
+        message: "My test Message!",
+        type: "success"
+      }).then(function () {
+        console.log('User says ok.')
+      }).catch(function () { console.log('He closed it.') })
+    });
+  </script>
+</body>
+</html>
