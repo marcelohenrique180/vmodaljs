@@ -1,7 +1,7 @@
 /* global describe, it, before */
 
 import chai from 'chai';
-import { resolveTemplate } from '../lib/vmodaljs.js';
+import { resolveTemplate } from '../lib/vmodaljs_test.js';
 
 chai.expect();
 
