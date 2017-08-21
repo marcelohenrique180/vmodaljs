@@ -24,7 +24,8 @@ if (env === 'build') {
 const config = {
   entry: {
     vmodaljs: __dirname + '/src/index.js',
-    vmodaljs_polyfilled: ["babel-polyfill", __dirname + '/src/index.js']
+    vmodaljs_polyfilled: ["babel-polyfill", __dirname + '/src/index.js'],
+    vmodaljs_test: __dirname + '/src/index-test.js'
   },
   devtool: 'source-map',
   output: {
